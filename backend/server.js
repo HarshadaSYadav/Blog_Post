@@ -4,11 +4,21 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-app.use(express.json());
-app.use(cors({ origin: "https://blog-post-the5.vercel.app", 
-              methods: ["GET", "POST", "PUT", "DELETE"],
-              allowedHeaders: ["Content-Type"] }));
+const corsOptions = {
+  origin: 'https://blog-post-the5.vercel.app',// Allow the frontend domain
+  methods: "GET,POST,PUT,DELETE,OPTIONS", // Allowed methods
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
 
+// Middleware
+// Handle preflight requests
+app.use(bodyParser.json());
+app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  console.log("CORS Headers:");
+  console.log(req.headers);
+  next();
+});
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB Connected"))
