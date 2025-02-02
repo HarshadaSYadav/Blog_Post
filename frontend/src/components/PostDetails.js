@@ -11,7 +11,7 @@ const PostDetails = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/post/${id}`);
+                const response = await axios.get(`https://blog-post-sigma-snowy.vercel.app/api/post/${id}`);
                 setPost(response.data);
             } catch (error) {
                 console.error("Error fetching post:", error);
@@ -22,7 +22,7 @@ const PostDetails = () => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/post/${id}`);
+            await axios.delete(`https://blog-post-sigma-snowy.vercel.app/api/post/${id}`);
             alert("Post deleted successfully!");
             navigate("/"); // Redirect to the posts list after deletion
         } catch (error) {
