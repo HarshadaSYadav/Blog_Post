@@ -1,0 +1,402 @@
+/* App.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Landing Page Styling */
+.posts-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.posts-list-container h2 {
+  font-size: 3rem;
+  font-weight: bolder;
+  margin-bottom: 25px;
+  color: #007bff;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.post-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 15px;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.post-title:hover {
+  color: #0056b3;
+}
+
+.post-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.read-more-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+/* Add Post Page Styling */
+.add-post-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  font-size: 1.7rem;
+  margin-right: 5px;
+  font-weight: bold;
+  background-color:#033973;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-post-btn:hover {
+  background-color: #0056b3;
+}
+
+.form-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 650px;
+  max-width: 900px;
+  background:white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-container.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  color: #007bff;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  border: 1px solid #201a1a;
+  border-radius: 5px;
+}
+
+form textarea {
+  resize: none;
+  height: 200px;
+  color: #0c0c0c;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 35px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Detailed Post View Styling */
+.detailed-post-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.detailed-post-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.detailed-post-container h1 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.detailed-post-container p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+.post-description {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .posts {
+      grid-template-columns: 1fr;
+  }
+
+  .form-container {
+      width: 95%;
+  }
+}
+.post-date {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.post-card .post-date {
+  margin-top: 5px;
+  font-style: italic;
+}
+.detailed-post-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.add-post-container {
+  padding: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.add-post-container form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.add-post-container input,
+.add-post-container textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-post-container button {
+  padding: 15px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.home-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 25px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #255526;
+}
+.add-post-container h2{
+  font-size: 35px;
+  text-align: center;
+  margin-top: 100px;
+}
+/* Container for search input and add post button */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Search Input Styling */
+.top-controls input {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.top-controls input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Add Post Button Styling */
+.add-post-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-post-btn:hover {
+  background-color: #0056b3;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s, border-color 0.3s;
+  margin: 0 5px;
+}
+
+.pagination button:hover {
+  background-color: #333;
+  color: white;
+}
+
+.pagination button:disabled {
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination .active {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.pagination .page-number {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination .page-number.active {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
