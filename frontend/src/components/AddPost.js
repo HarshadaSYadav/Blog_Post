@@ -37,10 +37,10 @@ const AddPost = () => {
 
         try {
             if (post) {
-                await axios.put(`http://localhost:5000/api/post/${post._id}`, formData);
+                await axios.put(`https://blog-post-sigma-snowy.vercel.app/api/post/${post._id}`, formData);
                 alert("Post updated successfully!");
             } else {
-                await axios.post("http://localhost:5000/api/add-post", formData);
+                await axios.post("https://blog-post-sigma-snowy.vercel.app/api/add-post", formData);
                 alert("Post added successfully!");
             }
             navigate("/");
