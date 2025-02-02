@@ -12,7 +12,7 @@ const PostsList = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await axios.get("http://localhost:5000/api/posts");
+            const response = await axios.get("https://blog-post-sigma-snowy.vercel.app/api/posts");
             setPosts(response.data);
         };
         fetchPosts();
